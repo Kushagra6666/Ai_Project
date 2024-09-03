@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #c68def; /* Dark purple overlay */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('wave.png'); /* Replace with your image path */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150% 150%;
+    background-blend-mode: multiply; 
+    background-attachment: fixed;/* Blend the image with the background color */
+    opacity: 1; /* Ensure the body background is fully opaque */
+}
+
+header, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Allows vertical stacking of elements */
+}
+
+h1, h2 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+h1:hover, h2:hover, h1.active, h2.active {
+    transform: scale(1.1); /* Enlarges the heading */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Adds a glowing effect */
+    color: #f5ea7b; /* Change color on hover or click */
+}
+
+.option-buttons,
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px; /* Adds space below the buttons */
+}
+
+.option-buttons a,
+.option-button {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Darker text */
+    padding: 20px 40px; /* Increase padding to make buttons larger */
+    background-color: #e2e2b6; /* Use background-color to ensure no transparency */
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em; /* Increase font size for larger text */
+    transition: background 0.3s ease, transform 0.3s ease; /* Add transform for the box effect */
+    font-weight: 700; /* Make text bolder */
+}
+
+.option-buttons a:hover,
+.option-button:hover,
+.option-buttons a.active,
+.option-button.active {
+    background-color: #d8d89f; /* Slightly darker background on hover */
+    transform: scale(1.1); /* Enlarge the button more on hover or click */
+}
+
+.hidden {
+    display: none;
+}
+
+#dynamic-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.dynamic-option {
+    background-color: #e2e2b6; /* Use background-color to ensure no transparency */
+    padding: 15px 30px; /* Increase padding for larger buttons */
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dynamic-option:hover,
+.dynamic-option.active {
+    background-color: #d8d89f; /* Darker background on hover */
+    transform: scale(1.1); /* Enlarge on hover */
+}

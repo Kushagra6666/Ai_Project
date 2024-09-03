@@ -1,0 +1,42 @@
+[
+    {
+        "Question": "Who formulated Newton's laws of motion?",
+        "Option_1": "Albert Einstein",
+        "Option_2": "Isaac Newton",
+        "Option_3": "Galileo Galilei",
+        "Option_4": "Johannes Kepler",
+        "Correct_Answer": "Isaac Newton"
+    },
+    {
+        "Question": "Which law of motion describes the relationship between an object's mass, velocity, and momentum?",
+        "Option_1": "Newton's first law",
+        "Option_2": "Newton's second law",
+        "Option_3": "Newton's third law",
+        "Option_4": "None of the above",
+        "Correct_Answer": "Newton's second law"
+    },
+    {
+        "Question": "According to Newton's third law of motion, for every action, there is an equal and opposite:",
+        "Option_1": "Force",
+        "Option_2": "Velocity",
+        "Option_3": "Acceleration",
+        "Option_4": "Momentum",
+        "Correct_Answer": "Force"
+    },
+    {
+        "Question": "Which law of motion is also known as the law of inertia?",
+        "Option_1": "Newton's first law",
+        "Option_2": "Newton's second law",
+        "Option_3": "Newton's third law",
+        "Option_4": "None of the above",
+        "Correct_Answer": "Newton's first law"
+    },
+    {
+        "Question": "Newton's laws of motion form the basis of which field of science?",
+        "Option_1": "Physics",
+        "Option_2": "Chemistry",
+        "Option_3": "Biology",
+        "Option_4": "Mathematics",
+        "Correct_Answer": "Physics"
+    }
+]

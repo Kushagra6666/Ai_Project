@@ -1,0 +1,87 @@
+[
+    {
+        "Main_question": "Describe the process of pollination in angiosperms.",
+        "Sub_questions": [
+            "What is pollination?",
+            "What are the different types of pollination?",
+            "What is the role of pollinators?",
+            "What are the adaptations of plants to attract pollinators?",
+            "What are the environmental factors that affect pollination?"
+        ],
+        "Sub_answers": [
+            "Pollination is the transfer of pollen from the male anther to the female stigma of a flower.",
+            "Types of pollination include self-pollination, cross-pollination, and wind pollination.",
+            "Pollinators, such as bees, butterflies, and hummingbirds, play a crucial role in transferring pollen.",
+            "Plants have evolved adaptations like bright flowers, nectar, and scent to attract pollinators.",
+            "Factors like temperature, humidity, and wind speed can impact the efficiency of pollination."
+        ]
+    },
+    {
+        "Main_question": "Explain the double fertilization process in angiosperms.",
+        "Sub_questions": [
+            "What is double fertilization?",
+            "What are the products of double fertilization?",
+            "How does double fertilization contribute to seed development?",
+            "What is the significance of double fertilization in angiosperms?",
+            "How does double fertilization differ from fertilization in other plant groups?"
+        ],
+        "Sub_answers": [
+            "Double fertilization is a unique reproductive process in angiosperms where two sperm cells fuse with different female gametes.",
+            "Products of double fertilization are a zygote (which develops into an embryo) and an endosperm (which provides nutrition to the embryo).",
+            "Double fertilization ensures genetic diversity and provides adequate nourishment for the developing embryo.",
+            "Double fertilization is a key feature of angiosperms, distinguishing them from other plant groups.",
+            "In other plant groups, fertilization involves the fusion of only one sperm cell with the egg cell."
+        ]
+    },
+    {
+        "Main_question": "Compare and contrast monocot and dicot seeds.",
+        "Sub_questions": [
+            "What are the defining characteristics of monocot seeds?",
+            "What are the defining characteristics of dicot seeds?",
+            "How do monocot and dicot seeds differ in structure?",
+            "How do monocot and dicot seeds differ in germination pattern?",
+            "Provide examples of monocot and dicot plants."
+        ],
+        "Sub_answers": [
+            "Monocot seeds typically have one cotyledon (seed leaf), an endosperm, and a fibrous root system.",
+            "Dicot seeds usually have two cotyledons, no endosperm, and a taproot system.",
+            "Monocot seeds have a single cotyledon, while dicot seeds have two cotyledons.",
+            "Monocot seeds germinate with a single primary root, while dicot seeds germinate with two primary roots.",
+            "Examples of monocots include corn, wheat, and lilies, while examples of dicots include beans, peas, and sunflowers."
+        ]
+    },
+    {
+        "Main_question": "Describe the role of hormones in plant reproduction.",
+        "Sub_questions": [
+            "What hormones are involved in plant reproduction?",
+            "How do hormones regulate flowering?",
+            "How do hormones promote fruit development?",
+            "What is the role of hormones in seed dormancy?",
+            "How can hormones be manipulated to improve crop production?"
+        ],
+        "Sub_answers": [
+            "Hormones like gibberellins, cytokinins, and auxins play key roles in plant reproduction.",
+            "Gibberellins and cytokinins stimulate flowering by promoting the transition from vegetative to reproductive growth.",
+            "Auxins and cytokinins regulate fruit development by controlling cell division and fruit size.",
+            "Abscisic acid induces seed dormancy to prevent premature germination.",
+            "Hormones can be applied to crops to enhance flowering, fruit set, and seed production."
+        ]
+    },
+    {
+        "Main_question": "Discuss the adaptations of plants to diverse reproductive strategies.",
+        "Sub_questions": [
+            "How do plants adapt to different pollination mechanisms?",
+            "What are the advantages and disadvantages of self-pollination and cross-pollination?",
+            "How do plants disperse their seeds effectively?",
+            "What are the adaptations of plants to attract and disperse seeds by animals?",
+            "How do plants cope with environmental challenges during reproduction?"
+        ],
+        "Sub_answers": [
+            "Plants have evolved diverse adaptations to attract specific pollinators, such as colorful petals, nectar production, and specialized flower shapes.",
+            "Self-pollination ensures reproductive success in isolated environments but limits genetic diversity, while cross-pollination promotes genetic variation but requires pollinators.",
+            "Seed dispersal adaptations include wind-dispersed seeds (e.g., dandelion), water-dispersed seeds (e.g., coconut), and animal-dispersed seeds (e.g., berries).",
+            "Plants may produce fleshy fruits or offer nectar rewards to attract animals that aid in seed dispersal.",
+            "Plants can withstand environmental challenges during reproduction through strategies like dormancy, seed banks, and physiological adaptations to tolerate stress."
+        ]
+    }
+]

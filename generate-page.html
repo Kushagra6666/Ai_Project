@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Questions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff; /* White background */
+            color: #333;
+            display: flex;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky; /* Keeps it in place */
+            top: 20px; /* Adjusts the top offset */
+            height: fit-content; /* Adjusts height to content */
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .re-generate-button {
+            background-color: #ff5733; /* Red-orange button */
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%; /* Make button full width */
+        }
+
+        .section {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section label {
+            font-weight: bold;
+        }
+
+        .number-selector,
+        .difficulty-level,
+        .question-type {
+            margin-bottom: 20px;
+        }
+
+        .number-selector select,
+        .difficulty-level input,
+        .question-type select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .difficulty-level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .difficulty-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .difficulty-option input[type="radio"] {
+            margin-bottom: 5px; /* Space between button and label */
+        }
+
+        .questions-panel {
+            flex: 3;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            overflow-y: auto; /* Enables scrolling in the middle section */
+            max-height: 80vh; /* Controls the height of the middle section for scrolling */
+        }
+
+        .qa-pane {
+            flex: 2;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .qa-pane h2 {
+            margin-top: 0;
+        }
+
+        .question-type-content {
+            display: none;
+        }
+
+        .related-sections {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky; /* Keeps it in place */
+            top: 20px; /* Adjusts the top offset */
+            height: fit-content; /* Adjusts height to content */
+        }
+
+        .related-sections h3 {
+            margin-top: 0;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        .question-type {
+            max-height: 200px; /* Adjust height as needed */
+            overflow-y: auto; /* Add scrollbar if needed */
+        }
+
+        .question-type select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .manage-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-button {
+            background-color: #28a745; /* Green button */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%; /* Make button full width */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <button class="re-generate-button">Re-generate</button>
+            </div>
+            <div class="section number-selector">
+                <label for="number-of-questions">Number of Questions:</label>
+                <select id="number-of-questions">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="section difficulty-level">
+                <div class="difficulty-option">
+                    <input type="radio" name="difficulty" value="easy">
+                    <label>Easy</label>
+                </div>
+                <div class="difficulty-option">
+                    <input type="radio" name="difficulty" value="medium">
+                    <label>Medium</label>
+                </div>
+                <div class="difficulty-option">
+                    <input type="radio" name="difficulty" value="hard">
+                    <label>Hard</label>
+                </div>
+            </div>
+            <div class="section question-type">
+                <label for="question-type">Question Type:</label>
+                <select id="question-type" onchange="filterQuestions()">
+                    <option value="mixed">Mixed</option>
+                    <option value="mcq">Multiple Choice Questions</option>
+                    <option value="multiple-select">Multiple Select Questions</option>
+                    <option value="case-based">Case Based Questions</option>
+                    <option value="assertion-reasoning">Assertion and Reasoning</option>
+                    <option value="subjective">Subjective Questions</option>
+                </select>
+            </div>
+        </div>
+    
+            <div class="qa-pane">
+                <div class="question-type-content mcq" style="display: none;">
+                    <h3>Multiple Choice Questions</h3>
+                </div>
+                <div class="question-type-content multiple-select" style="display: none;">
+                    <h3>Multiple Select Questions</h3>
+                </div>
+                <div class="question-type-content case-based" style="display: none;">
+                    <h3>Case Based Questions</h3>
+                </div>
+                <div class="question-type-content assertion-reasoning" style="display: none;">
+                    <h3>Assertion and Reasoning</h3>
+                </div>
+                <div class="question-type-content subjective" style="display: none;">
+                    <h3>Subjective Questions</h3>
+                </div>
+                
+            </div>
+            <div class="related-sections">
+                <h3>Similar Questions</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="similar1"> Similar Question 1</label>
+                    <label><input type="checkbox" value="similar2"> Similar Question 2</label>
+                    <label><input type="checkbox" value="similar3"> Similar Question 3</label>
+                </div>
+                <h3>Textbook Questions</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="textbook1"> Textbook Question 1</label>
+                    <label><input type="checkbox" value="textbook2"> Textbook Question 2</label>
+                    <label><input type="checkbox" value="textbook3"> Textbook Question 3</label>
+                </div>
+                <h3>Competitive Exam Questions</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="competitive1"> Competitive Question 1</label>
+                    <label><input type="checkbox" value="competitive2"> Competitive Question 2</label>
+                    <label><input type="checkbox" value="competitive3"> Competitive Question 3</label>
+                </div>
+                <button class="manage-button">Manage Questions</button>
+                <button class="submit-button">Submit Answers</button>
+            </div>
+        
+    </div>
+
+    <script>
+        async function fetchJSON(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+                return await response.json();
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        }
+        
+        async function loadQuestions() {
+            const mcqData = await fetchJSON('msq.json'); // Replace with actual URL
+            const multipleSelectData = await fetchJSON('ms.json'); // Replace with actual URL
+            const caseBasedData = await fetchJSON('cb.json'); // Replace with actual URL
+            const assertionReasoningData = await fetchJSON('ar.json'); // Replace with actual URL
+            const subjectiveData = await fetchJSON('test.json'); // Replace with actual URL
+        
+            if (mcqData) {
+                mcqData.forEach(item => {
+                    if (item.Question) {
+                        renderMCQ(item);
+                    }
+                });
+            }
+        
+            if (multipleSelectData) {
+                multipleSelectData.forEach(item => {
+                    if (item.Question) {
+                        renderMultipleSelect(item);
+                    }
+                });
+            }
+        
+            if (caseBasedData) {
+                caseBasedData.forEach(item => {
+                    if (item.Case && item.Question) {
+                        renderCaseBased(item);
+                    }
+                });
+            }
+        
+            if (assertionReasoningData) {
+                assertionReasoningData.forEach(item => {
+                    if (item.Assert && item.Reason) {
+                        renderAssertionReasoning(item);
+                    }
+                });
+            }
+        
+            if (subjectiveData) {
+                subjectiveData.forEach(item => {
+                    if (item.Main_question) {
+                        renderSubjectiveQuestions(item);
+                    }
+                });
+            }
+        }
+        
+        function renderMCQ(item) {
+            const mcqContainer = document.querySelector('.question-type-content.mcq');
+            mcqContainer.style.display = "block";
+            mcqContainer.innerHTML += `
+                <div>
+                    <p>${item.Question}</p>
+                    <input type="radio" name="${item.Question}" value="${item.Option_1}"> ${item.Option_1}<br>
+                    <input type="radio" name="${item.Question}" value="${item.Option_2}"> ${item.Option_2}<br>
+                    <input type="radio" name="${item.Question}" value="${item.Option_3}"> ${item.Option_3}<br>
+                    <input type="radio" name="${item.Question}" value="${item.Option_4}"> ${item.Option_4}
+                </div>
+            `;
+        }
+        
+        function renderMultipleSelect(item) {
+            const multipleSelectContainer = document.querySelector('.question-type-content.multiple-select');
+            multipleSelectContainer.style.display = "block";
+            multipleSelectContainer.innerHTML += `
+                <div>
+                    <p>${item.Question}</p>
+                    ${item.Options.map((option, index) => `
+                        <input type="checkbox" name="${item.Question}" value="${index}"> ${option}<br>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function renderCaseBased(item) {
+            const caseBasedContainer = document.querySelector('.question-type-content.case-based');
+            caseBasedContainer.style.display = "block";
+            caseBasedContainer.innerHTML += `
+                <div>
+                    <p>${item.Case}</p>
+                    <p>${item.Question}</p>
+                    ${item.Options.map((option, index) => `
+                        <input type="radio" name="${item.Question}" value="${index}"> ${option}<br>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function renderAssertionReasoning(item) {
+            const assertionReasoningContainer = document.querySelector('.question-type-content.assertion-reasoning');
+            assertionReasoningContainer.style.display = "block";
+            assertionReasoningContainer.innerHTML += `
+                <div>
+                    <p>Assertion: ${item.Assert}</p>
+                    <p>Reason: ${item.Reason}</p>
+                    ${item.Options.map((option, index) => `
+                        <input type="radio" name="${item.Assert}-${item.Reason}" value="${index}"> ${option}<br>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function renderSubjectiveQuestions(item) {
+            const subjectiveContainer = document.querySelector('.question-type-content.subjective');
+            subjectiveContainer.style.display = "block";
+            subjectiveContainer.innerHTML += `
+                <div>
+                    <h4>${item.Main_question}</h4>
+                    ${item.Sub_questions.map(subQuestion => `
+                        <div>
+                            <p>${subQuestion}</p>
+                            <textarea rows="4" placeholder="Type your answer here..."></textarea>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function filterQuestions() {
+            const selectElement = document.getElementById('question-type');
+            const selectedType = selectElement.value;
+        
+            // Hide all question type sections
+            const allQuestionTypes = document.querySelectorAll('.question-type-content');
+            allQuestionTypes.forEach(section => {
+                section.style.display = 'none';
+            });
+        
+            // Show the selected question type section
+            if (selectedType === 'mixed') {
+                allQuestionTypes.forEach(section => {
+                    section.style.display = 'block';
+                });
+            } else {
+                const selectedQuestionSection = document.querySelector(`.question-type-content.${selectedType}`);
+                if (selectedQuestionSection) {
+                    selectedQuestionSection.style.display = 'block';
+                }
+            }
+        }
+        
+        
+        document.addEventListener('DOMContentLoaded', loadQuestions);
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Assessment</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #b692c2;
+            color: white;
+            min-height: 100vh;
+            background-image: url('random.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: multiply;
+            opacity: 1;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            background-color: #45008a;
+            border-radius: 15px;
+            padding: 20px 20px;
+            /* Adjust padding */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 75%;
+            position: relative;
+            z-index: 1;
+            border: 3px solid black;
+        }
+
+
+        h1 {
+            background-color: #e2e2b6;
+            padding: 10px;
+            border-radius: 15px;
+            color: black;
+            margin: 0px 0px 20px 0px;
+            font-size: 2em;
+            box-sizing: border-box;
+        }
+
+        #options-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin-bottom: 20px;
+        }
+
+        .option-button,
+        .question-type {
+            background-color: #694f8e00;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 70px;
+        }
+
+        .option-button.active,
+        .question-type.selected {
+            background-color: #e2e2b6;
+            font-weight: 900;
+            color: black;
+        }
+
+        #dynamic-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: #e2e489;
+            width: 75%;
+            border-radius: 110px;
+            padding: 2px;
+        }
+
+        .file-type-content {
+            display: flex;
+            flex-direction: column;
+            /* Stack elements vertically */
+            align-items: center;
+            background-color: #694f8e00;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            /* Adjust as needed */
+            box-sizing: border-box;
+            /* Ensure padding is included in width/height calculation */
+        }
+
+        .drop-area,
+        .text-box {
+
+            max-width: 100%;
+            /* Ensure it does not exceed the container width */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .drop-area {
+            border: 2px dashed #694f8e;
+            padding: 20px;
+            border-radius: 10px;
+            color: #e2e2b6;
+            font-size: 1.2em;
+            font-weight: bold;
+            min-height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .text-box {
+            background-color: #e2e2b6;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: black;
+            font-size: 1em;
+            min-height: 150px;
+            /* Consistent height */
+            resize: vertical;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            min-width: 90%;
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+        }
+
+
+
+        .word-count {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .generate-button {
+            grid-column: span 2;
+            /* Make the Generate button span across both columns */
+            background-color: #e2e489;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: black;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            box-sizing: border-box;
+            /* Include padding in height calculation */
+        }
+
+        .generate-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .quick-content-box {
+            background-color: #694f8e00;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            /* Two columns for the grid */
+
+        }
+
+        .question-type {
+            background-color: #694f8e00;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20vw;
+            /* Ensure full width */
+            height: 80px;
+            /* Set a fixed height for uniformity */
+            box-sizing: border-box;
+            /* Include padding in height/width calculation */
+        }
+
+        .option-button2 {
+            background-color: #e2e489;
+            padding: 10px;
+            border-radius: 110px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            flex: 1;
+            display: inline-block;
+            border: 2px solid transparent;
+            /* Set default border */
+        }
+
+        .container,
+        h1,
+        #options-container,
+        #dynamic-content,
+        .file-type-content,
+        .drop-area,
+        .text-box,
+        .quick-content-box,
+        .generate-button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .option-button2.active {
+            border: 2px solid purple;
+            color: black;
+        }
+
+        .secondline {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            background-color: #45008a;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+
+        }
+
+        .cont{
+            padding-bottom:10px ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generative Assessment</h1>
+
+        <div id="options-container">
+            <a href="#" class="option-button active" id="explore-btn">Explore</a>
+            <a href="#" class="option-button" id="quick-btn">Quick</a>
+        </div>
+
+        <div id="dynamic-content">
+            <a href="#" class="option-button2" id="drop-file-btn">DROP FILE</a>
+            <a href="#" class="option-button2" id="type-btn">TYPE</a>
+        </div>
+
+        <div id="file-type-content" class="file-type-content">
+            <!-- Content for Drop File and Type options will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const exploreButton = document.getElementById('explore-btn');
+            const quickButton = document.getElementById('quick-btn');
+            const dropFileButton = document.getElementById('drop-file-btn');
+            const typeButton = document.getElementById('type-btn');
+            const fileTypeContent = document.getElementById('file-type-content');
+        
+            // Set default active state
+            exploreButton.classList.add('active');
+            dropFileButton.classList.add('active');
+            showContentBox('Drop File Explore');
+        
+            exploreButton.addEventListener('click', () => {
+                showFileTypeOptions('Explore');
+                showContentBox(dropFileButton.classList.contains('active') ? 'Drop File Explore' : 'Type Explore');
+            });
+        
+            quickButton.addEventListener('click', () => {
+                showFileTypeOptions('Quick');
+                showContentBox(dropFileButton.classList.contains('active') ? 'Drop File Quick' : 'Type Quick');
+            });
+        
+            dropFileButton.addEventListener('click', () => {
+                setActiveButton(dropFileButton, typeButton);
+                showContentBox(exploreButton.classList.contains('active') ? 'Drop File Explore' : 'Drop File Quick');
+            });
+        
+            typeButton.addEventListener('click', () => {
+                setActiveButton(typeButton, dropFileButton);
+                showContentBox(exploreButton.classList.contains('active') ? 'Type Explore' : 'Type Quick');
+            });
+        
+            function showFileTypeOptions(type) {
+                document.querySelectorAll('.option-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+        
+                if (type === 'Explore') {
+                    exploreButton.classList.add('active');
+                    quickButton.classList.remove('active');
+                } else if (type === 'Quick') {
+                    quickButton.classList.add('active');
+                    exploreButton.classList.remove('active');
+                }
+        
+                // Show the appropriate content based on the selected file type
+                showContentBox(dropFileButton.classList.contains('active') ? 'Drop File ' + type : 'Type ' + type);
+            }
+        
+            function showContentBox(option) {
+                fileTypeContent.style.display = 'flex'; // Ensure the content box is visible
+        
+                switch (option) {
+                    case 'Drop File Explore':
+                        fileTypeContent.innerHTML = `
+                            <div class="drop-area" id="drop-area-explore">
+                                <p>DROP HERE</p>
+                                <p>Max size 25 MB (TXT, DOCS, PDF)</p>
+                            </div>
+                            <a href="generate-page.html" class="generate-button">GENERATE</a>
+                        `;
+                        break;
+                    case 'Type Explore':
+                        fileTypeContent.innerHTML = `
+                            <textarea class="text-box" id="type-explore" placeholder="Type here..."></textarea>
+                            <div class="word-count" id="word-count-explore">Word count: 0/500</div>
+                            <a href="generate-page.html" class="generate-button">GENERATE</a>
+                        `;
+                        setupWordCount('type-explore', 'word-count-explore');
+                        break;
+                    case 'Drop File Quick':
+                        fileTypeContent.innerHTML = `
+                            <div class="drop-area" id="drop-area-quick">
+                                <p>DROP HERE</p>
+                                <p>Max size 25 MB (TXT, DOCS, PDF)</p>
+                            </div>
+                            <p>Select Question Type</p>
+                            <div class="cont">
+                            <div class="quick-content-box">
+                                <div class="question-type" data-type="multiple-choice">Multiple Choice</div>
+                                <div class="question-type" data-type="multiple-select">Multiple Select</div>
+                                <div class="question-type" data-type="assertion-reasoning">Assertion and Reasoning</div>
+                            </div>
+                                <div class="secondline">
+                                <div class="question-type" data-type="case-based" >Case Based</div>
+                                <div class="question-type" data-type="subjective" >Subjective</div>
+                                </div>
+                            </div>
+                            <a href="generate-page.html" class="generate-button">GENERATE</a>
+                        `;
+                        setupQuestionTypeButtons();
+                        break;
+                    case 'Type Quick':
+                        fileTypeContent.innerHTML = `
+                        <div>
+                            <div>
+                                <textarea class="text-box" id="text-box-quick" placeholder="Type here..."></textarea>
+                                <div class="word-count" id="word-count-quick">Word count: 0/500</div>
+                            </div>
+                            <p>Select Question Type</p>
+                            <div class="cont">
+                            <div class="quick-content-box">
+                                <div class="question-type" data-type="multiple-choice">Multiple Choice</div>
+                                <div class="question-type" data-type="multiple-select">Multiple Select</div>
+                                <div class="question-type" data-type="assertion-reasoning">Assertion and Reasoning</div>
+                            </div>
+                                <div class="secondline">
+                                <div class="question-type" data-type="case-based" >Case Based</div>
+                                <div class="question-type" data-type="subjective" >Subjective</div>
+                                </div>
+                            </div>
+                            <a href="generate-page.html" class="generate-button">GENERATE</a>
+                        </div>
+                        `;
+                        setupWordCount('text-box-quick', 'word-count-quick');
+                        setupQuestionTypeButtons();
+                        break;
+                    default:
+                        fileTypeContent.innerHTML = '';
+                }
+            }
+        
+            function setActiveButton(activeButton, inactiveButton) {
+                activeButton.classList.add('active');
+                inactiveButton.classList.remove('active');
+            }
+        
+            function setupWordCount(textAreaId, wordCountId) {
+                const textArea = document.getElementById(textAreaId);
+                const wordCount = document.getElementById(wordCountId);
+        
+                textArea.addEventListener('input', () => {
+                    const words = textArea.value.trim().split(/\s+/).length;
+                    wordCount.textContent = `Word count: ${words}/500`;
+                });
+            }
+        
+            function setupQuestionTypeButtons() {
+                const questionTypes = document.querySelectorAll('.question-type');
+                questionTypes.forEach(button => {
+                    button.addEventListener('click', () => {
+                        questionTypes.forEach(bt => bt.classList.remove('selected'));
+                        button.classList.add('selected');
+                    });
+                });
+            }
+        });
+        
+    </script>
+    
+</body>
+
+</html>
